@@ -2,13 +2,6 @@ import pandas as pd
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 
-# Load dataset and create embeddings (global for testing)
-
-# Load the Sentence Transformer model
-
-# Convert the 'plot of the movies into an embedding
-
-
 #loading the dataset once
 movies_df=pd.read_csv("movies.csv")
 
@@ -30,15 +23,15 @@ def search_movies(query, top_n=5):
         pd.DataFrame: Top N most similar movies with title, plot, and similarity score.
     """
 
-    # Encode query
+    #encode query
     query_embedding = model.encode([query], convert_to_tensor=False)
 
-    # Compute cosine similarity
+    #compute cosine similarity
     similarities = cosine_similarity(query_embedding, movie_embeddings)[0]
 
-    # Attach similarity scores to dataframe
+    #attach similarity scores to dataframe
     movies_df_copy = movies_df.copy()
     movies_df_copy['similarity'] = similarities
 
-    # Sort by similarity and return top_n
+    #sort by similarity and return top_n
     return movies_df_copy.sort_values(by='similarity', ascending=False).head(top_n)[['title', 'plot', 'similarity']]
