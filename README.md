@@ -11,5 +11,22 @@ python -m venv ai_sys
 ai_sys\Scripts\activate
 pip install -r requirements.txt
 
+```
+## Running the notebook
+```bash
+jupyter notebook
+```
+Open movie_search_solution.ipynb to view the solution.
 
-RUNNING THE NOTEBOOK 
+## Testing
+```bash
+python -m unittest tests/test_movie_search.py -v
+```
+## Usage
+```bash
+from movie_search import search_movies
+
+results = search_movies("spy thriller in Paris", top_n=5)
+print(results)
+```
+
