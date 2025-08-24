@@ -1,5 +1,7 @@
 # Movie Semantic Search Assignment
 
+![Python package](https://github.com/Varsha-Narla/movie-search-assignment/actions/workflows/python-tests.yml/badge.svg)
+
 This repository contains my solution for the semantic search on movie plots assignment.
 
 ## Setup
